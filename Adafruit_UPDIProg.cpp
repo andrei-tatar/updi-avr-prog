@@ -449,13 +449,6 @@ void Adafruit_AVRProg::updi_serial_force_break(void) {
 }
 
 bool Adafruit_AVRProg::updi_init(bool force) {
-  if (force && (_power >= 0)) {
-    pinMode(_power, OUTPUT);
-    digitalWrite(_power, _invertpower);
-    delay(10);
-    digitalWrite(_power, !_invertpower);
-    delay(10);
-  }
   updi_serial_init();
   updi_send_handshake();
   delay(3);
